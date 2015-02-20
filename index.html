@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Foo</title>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<style type='text/css'>
+body {
+  font-family: 'Helvetica';
+  letter-spacing:-5px;
+  background:#000;
+  background-size:100%;
+  color:#fff;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em, a {
+  font-style:normal;
+  color:#8dbd0c;
+}
+
+a {
+  background: #34d0e7;
+  color:#000;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+</style>
+<script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0, ti;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n], t;
+        document.body.className = e.dataset.bodyclass || '';
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild && e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+            if ('classList' in e) e.classList.add('imageText');
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        if (ti !== undefined) window.clearInterval(ti);
+        t = parseInt(e.dataset.timeToNext || 0, 10);
+        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 2) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() { go(++cur % (s.length)); };
+    function fwd() { go(Math.min(s.length - 1, ++cur)); }
+    function rev() { go(Math.max(0, --cur)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39 || e.which === 34 || e.which === 40) fwd();
+        if (e.which === 37 || e.which === 33 || e.which === 38) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+    go(cur);
+};
+</script></head><body>
+<div><h1 id="hi-i-m-todrobbins">Hi, I&#39;m @todrobbins</h1>
+</div>
+<div><h1 id="i-m-with-opensaltlake">I&#39;m with @OpenSaltLake</h1>
+</div>
+<div><h1 id="a-local-codeforamerica-brigade">a local @codeforamerica brigade</h1>
+</div>
+<div><h1 id="localwiki-org">LocalWiki.org</h1>
+</div>
+<div><h1 id="-slc">/slc</h1>
+</div>
+<div><h1 id="-churchstate1893">@churchstate1893</h1>
+</div>
+<div><p><img src="http://static1.squarespace.com/static/543c4cbce4b0c63f5a37ec43/t/543dca65e4b0fffb457491fd/1413335687547/chapel-bw.jpg?format=1500w" alt=""></p>
+</div>
+<div><h1 id="what-is-localwiki-">What is LocalWiki?</h1>
+</div>
+<div><p><img src="https://dl.dropboxusercontent.com/u/5467096/localwiki-history.png" alt=""></p>
+</div>
+<div><h1 id="localwiki-is-a-grassroots-effort">LocalWiki is a grassroots effort</h1>
+</div>
+<div><h1 id="to-collect-share-and-open">to collect, share, and open</h1>
+</div>
+<div><h1 id="the-world-s-local-knowledge">the world’s local knowledge</h1>
+</div>
+<div><h1 id="articles-maps-tags-images-histories-lists">articles, maps, tags, images, histories, lists</h1>
+</div>
+<div><h1 id="do">DO</h1>
+</div>
+<div><h1 id="share-local-knowledge">Share Local knowledge</h1>
+</div>
+<div><h1 id="do">DO</h1>
+</div>
+<div><h1 id="celebrate-everybody-s-knowledge">Celebrate everybody&#39;s knowledge</h1>
+</div>
+<div><h1 id="do">DO</h1>
+</div>
+<div><h1 id="add-useful-interesting-information">Add useful, interesting information</h1>
+</div>
+<div><h1 id="do">DO</h1>
+</div>
+<div><h1 id="look-beyond-the-official-story-">Look beyond the “official story”</h1>
+</div>
+<div><h1 id="do">DO</h1>
+</div>
+<div><h1 id="celebrate-things-in-our-community-in-a-non-commercial-way">Celebrate things in our community in a non-commercial way</h1>
+</div>
+<div><h1 id="do-not">DO NOT</h1>
+</div>
+<div><h1 id="use-as-a-vehicle-for-commercial-promotion-or-gain">Use as a vehicle for commercial promotion or gain</h1>
+</div>
+<div><h1 id="do-not">DO NOT</h1>
+</div>
+<div><h1 id="post-content-that-is-not-compatible-with-cc-by-license">post content that is not compatible with CC-BY license</h1>
+</div>
+<div><h1 id="do-not">DO NOT</h1>
+</div>
+<div><h1 id="use-localwiki-for-being-malicious-towards-a-person-place-or-object">use LocalWiki for being malicious towards a person, place, or object</h1>
+</div>
+<div><h1 id="do-not">DO NOT</h1>
+</div>
+<div><h1 id="use-localwiki-to-support-illegal-activity">use LocalWiki to support illegal activity</h1>
+</div>
+<div><h1 id="so-">So...</h1>
+</div>
+<div><h1 id="let-s-edit-slc">Let&#39;s edit /slc</h1>
+</div>
