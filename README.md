@@ -1,5 +1,5 @@
 # hacknightslc-localwiki-talk
 
-View here: http://bl.ocks.org/anonymous/raw/bf14fd8a7e784b8803a5/#0
+View here: http://todrobbins.com/open-salt-lake/talks/girl-develop-it-localwiki-talk/
 
 Made with http://www.macwright.org/biggie/ by @tmcw
